@@ -26,8 +26,9 @@ class Root:
 	def index(self):
 		tmpl = env.get_template('index.html')
 		data = conn.hgetall("nifty")
+		time = data['time']
 		data = ast.literal_eval(data['data'])
-		return tmpl.render(data=data)
+		return tmpl.render(data=data,time=time)
 
 config = {
     '/static':{
