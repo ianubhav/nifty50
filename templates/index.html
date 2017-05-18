@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Bootstrap Card Table</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="static/style.css">
+
+  
+</head>
+<body>
+  <body class="large-screen">
+  <div class="wrap">
+    <div class="btn-toolbar buttons">
+      <div class="btn-group">
+        <button id="desktop" class="btn btn-primary">
+        <i class="fa fa-desktop" aria-hidden="true"></i>
+        Desktop Table
+      </button>
+      </div>
+      <div class="btn-group">
+        <button id="mobile" class="btn btn-default">
+        <i class="fa fa-mobile-phone" aria-hidden="true"></i>
+        Mobile Card List
+      </button>
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <table class="table-responsive card-list-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>LTP</th>
+            <th>% Change</th>
+            <th>Traded Qty</th>
+            <th>Value(in Lakhs)</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for items in data %}
+            <tr>
+              <td>{{items['symbol']}}</td>
+              <td>{{items['ltp']}}</td>
+              <td>{{items['netPrice']}}</td>
+              <td>{{items['tradedQuantity']}}</td>
+              <td>{{items['turnoverInLakhs']}}</td>
+              <td>{{items['openPrice']}}</td>
+              <td>{{items['highPrice']}}</td>
+              <td>{{items['lowPrice']}}</td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.floatthead/1.4.2/jquery.floatThead.min.js'></script>
+
+    <script src="static/index.js"></script>
+
+</body>
+</html>
