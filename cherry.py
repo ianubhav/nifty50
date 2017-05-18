@@ -37,6 +37,7 @@ config = {
 }
 
 cherrypy.tree.mount(Root(), '/', config = config)
+cherrypy.config.update({'server.socket_host': '0.0.0.0'})
 cherrypy.engine.start()
 thread()
 
