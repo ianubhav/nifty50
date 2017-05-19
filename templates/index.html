@@ -2,59 +2,55 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Responsive Bootstrap Card Table</title>
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
-
-      <link rel="stylesheet" href="static/style.css">
+  <title>MaterializeCSS Multi-Column Card Flow</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css" />
+  
+  
+      <link rel="stylesheet" href="static/style.css?v=5">
 
   
 </head>
+
 <body>
-  <body class="large-screen">
-  <div class="wrap">
-    <h1>Nifty Top 50 shares</h1>
-    <h6>Last updated: {{time}}</h6>
-    <div class="table-wrapper">
-      <table class="table-responsive card-list-table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>LTP</th>
-            <th>% Change</th>
-            <th>Traded Qty</th>
-            <th>Value(in Lakhs)</th>
-            <th>Open</th>
-            <th>High</th>
-            <th>Low</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for items in data %}
-            <tr>
-              <td>{{items['symbol']}}</td>
-              <td>{{items['ltp']}}</td>
-              <td>{{items['netPrice']}}</td>
-              <td>{{items['tradedQuantity']}}</td>
-              <td>{{items['turnoverInLakhs']}}</td>
-              <td>{{items['openPrice']}}</td>
-              <td>{{items['highPrice']}}</td>
-              <td>{{items['lowPrice']}}</td>
-              </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <h1>Nifty Top 50 shares</h1>
+        <h6>Last updated: {{time}}</h6>
+      </div>
     </div>
+    <div class="row">
+      {% for items in data %}
+        <div class="col m3">
+         <div class="card">
+           <div class="card-content">
+             <span class="card-title blue-text">{{items['symbol']}}</span>
+             <p>
+               <b>LTP:</b> {{items['ltp']}}
+             </p>
+             <p>
+               <b>% Change:</b> {{items['netPrice']}}
+             </p>
+             <p>
+               <b>Traded Qty:</b> {{items['tradedQuantity']}}
+             </p>
+             <p>
+               <b>Value(in Lakhs):</b> {{items['turnoverInLakhs']}}
+             </p>
+           </div>
+           <div class="card-action">
+             <p><b>Open:</b> {{items['openPrice']}}</p>
+             <p><b>High:</b> {{items['highPrice']}}</p>
+             <p><b>Low:</b> {{items['lowPrice']}}</p>
+           </div>
+          </div>
+      </div>
+      {% endfor %}
+    </div>      
+      </div>
   </div>
-</body>
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script src='https://cdn.jsdelivr.net/jquery.floatthead/1.4.2/jquery.floatThead.min.js'></script>
-
-    <script src="static/index.js"></script>
-
+</div>
+  
+  
 </body>
 </html>
